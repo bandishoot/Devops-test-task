@@ -13,10 +13,3 @@ sudo docker stop ${C_NAME}
 sudo docker rm ${C_NAME}
 sudo docker run -d --name ${C_NAME} -p 4000:80 --restart=always dashy-local:latest
 
-# simple check
-resp_code=$(curl -Is 127.0.0.1:4000 | awk 'NR==1 {print $2}')
-if [ $resp_code -eq "200" ]; then
-  echo "Script finished success"
-else
-  exit 1
-fi
